@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Elemente – Beispiel</title>
+</head>
+<body>
+    <!-- === Überschriften === -->
+    <h1>Überschrift Ebene 1</h1>
+    <h2>Überschrift Ebene 2</h2>
+    <h3>Überschrift Ebene 3</h3>
+
+    <!-- === Absätze und Textformatierung === -->
+    <p>Das ist ein normaler Absatz. HTML ist die Sprache des Webs.</p>
+    <p>Wörter können <strong>fett</strong>, <em>kursiv</em> oder 
+       <strong><em>fett und kursiv</em></strong> dargestellt werden.</p>
+    <p>Hier ist ein<br>Zeilenumbruch mitten im Absatz.</p>
+
+    <hr>
+
+    <!-- === Ungeordnete Liste === -->
+    <h2>Meine Hobbys (ungeordnet)</h2>
+    <ul>
+        <li>Programmieren</li>
+        <li>Lesen</li>
+        <li>Sport</li>
+        <li>Musik hören</li>
+    </ul>
+
+    <!-- === Geordnete Liste === -->
+    <h2>Meine Top 3 Programmiersprachen (geordnet)</h2>
+    <ol>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>HTML/CSS (ok, sind keine Programmiersprachen 😉)</li>
+    </ol>
+
+    <!-- === Verschachtelte Liste === -->
+    <h2>Schulfächer (verschachtelt)</h2>
+    <ul>
+        <li>Naturwissenschaften
+            <ul>
+                <li>Physik</li>
+                <li>Chemie</li>
+                <li>Biologie</li>
+            </ul>
+        </li>
+        <li>Sprachen
+            <ul>
+                <li>Deutsch</li>
+                <li>Englisch</li>
+            </ul>
+        </li>
+        <li>Informatik</li>
+    </ul>
+
+    <!-- === Bilder === -->
+    <h2>Ein Bild</h2>
+    <img src="https://via.placeholder.com/400x200" 
+         alt="Platzhalterbild 400x200 Pixel"
+         width="400" height="200">
+
+    <!-- === Tabelle === -->
+    <h2>Stundenplan (Auszug)</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Stunde</th>
+                <th>Montag</th>
+                <th>Dienstag</th>
+                <th>Mittwoch</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>Mathe</td>
+                <td>Deutsch</td>
+                <td>Informatik</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Mathe</td>
+                <td>Deutsch</td>
+                <td>Informatik</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Englisch</td>
+                <td>Physik</td>
+                <td>Sport</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- === Sonderzeichen === -->
+    <h2>Sonderzeichen (HTML-Entities)</h2>
+    <p>Kleiner als: &lt; | Größer als: &gt;</p>
+    <p>Und-Zeichen: &amp;</p>
+    <p>Copyright: &copy; | Euro: &euro;</p>
+    <p>Nicht-trennbares Leerzeichen: Herr&nbsp;Müller</p>
+</body>
+</html>

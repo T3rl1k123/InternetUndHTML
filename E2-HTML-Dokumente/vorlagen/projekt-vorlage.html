@@ -1,0 +1,170 @@
+<!-- ============================================
+     PROJEKTVORLAGE – Index / Startseite
+     Passe diese Vorlage für dein eigenes Projekt an!
+     ============================================ -->
+
+<!-- === Kopfbereich === -->
+<header class="site-header">
+    <h1>🌐 Mein Projekt</h1>
+    <p class="subtitle">Hier kommt ein Untertitel hin</p>
+</header>
+
+<!-- === Navigation === -->
+<nav class="main-nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#info">Informationen</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#kontakt">Kontakt</a>
+</nav>
+
+<!-- === Hauptinhalt === -->
+<main>
+
+    <!-- ===== Abschnitt 1: Home ===== -->
+    <section id="home" class="page-section">
+        <h2>Willkommen!</h2>
+        <p>Hier kommt eine Einleitung zu deinem Thema. Erkläre, worum es geht und was den Besucher erwartet.</p>
+        
+        <!-- Karten-Grid -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>Thema 1</h3>
+                <p>Kurze Beschreibung zum ersten Thema...</p>
+            </div>
+            <div class="card">
+                <h3>Thema 2</h3>
+                <p>Kurze Beschreibung zum zweiten Thema...</p>
+            </div>
+            <div class="card">
+                <h3>Thema 3</h3>
+                <p>Kurze Beschreibung zum dritten Thema...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Abschnitt 2: Informationen ===== -->
+    <section id="info" class="page-section">
+        <h2>Informationen</h2>
+        
+        <div class="content-grid">
+            <div class="content-main">
+                <p>Hier steht dein Haupttext. Du kannst mehrere Absätze schreiben.</p>
+                <p>Füge Bilder, Listen und Tabellen hinzu, um den Inhalt interessanter zu machen.</p>
+                
+                <!-- Tabelle -->
+                <h3>Daten und Fakten</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Eigenschaft</th>
+                            <th>Wert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eigenschaft 1</td>
+                            <td>Wert 1</td>
+                        </tr>
+                        <tr>
+                            <td>Eigenschaft 2</td>
+                            <td>Wert 2</td>
+                        </tr>
+                        <tr>
+                            <td>Eigenschaft 3</td>
+                            <td>Wert 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Liste -->
+                <h3>Wichtige Punkte</h3>
+                <ul>
+                    <li>Erster wichtiger Punkt</li>
+                    <li>Zweiter wichtiger Punkt</li>
+                    <li>Dritter wichtiger Punkt</li>
+                </ul>
+            </div>
+            
+            <aside class="content-sidebar">
+                <h3>💡 Wusstest du?</h3>
+                <ul>
+                    <li>Interessanter Fakt 1</li>
+                    <li>Interessanter Fakt 2</li>
+                    <li>Interessanter Fakt 3</li>
+                </ul>
+                
+                <h3>🔗 Links</h3>
+                <ul>
+                    <li><a href="https://example.com" target="_blank">Weiterführender Link 1</a></li>
+                    <li><a href="https://example.com" target="_blank">Weiterführender Link 2</a></li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ===== Abschnitt 3: Galerie ===== -->
+    <section id="galerie" class="page-section">
+        <h2>Galerie</h2>
+        <p>Hier sind einige Bilder zum Thema:</p>
+        
+        <div class="gallery-grid">
+            <figure>
+                <img src="https://via.placeholder.com/400x300/3498db/ffffff?text=Bild+1" alt="Beschreibung Bild 1">
+                <figcaption>Bildunterschrift 1</figcaption>
+            </figure>
+            <figure>
+                <img src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Bild+2" alt="Beschreibung Bild 2">
+                <figcaption>Bildunterschrift 2</figcaption>
+            </figure>
+            <figure>
+                <img src="https://via.placeholder.com/400x300/2ecc71/ffffff?text=Bild+3" alt="Beschreibung Bild 3">
+                <figcaption>Bildunterschrift 3</figcaption>
+            </figure>
+            <figure>
+                <img src="https://via.placeholder.com/400x300/9b59b6/ffffff?text=Bild+4" alt="Beschreibung Bild 4">
+                <figcaption>Bildunterschrift 4</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ===== Abschnitt 4: Kontakt ===== -->
+    <section id="kontakt" class="page-section">
+        <h2>Kontakt</h2>
+        <p>Hast du Fragen oder Anmerkungen? Nutze das Formular:</p>
+        
+        <form id="kontaktformular">
+            <div class="form-group">
+                <label for="name">Name: *</label>
+                <input type="text" id="name" name="name" placeholder="Dein Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail: *</label>
+                <input type="email" id="email" name="email" placeholder="deine@email.de" required>
+            </div>
+            <div class="form-group">
+                <label for="betreff">Betreff:</label>
+                <select id="betreff" name="betreff">
+                    <option value="frage">Frage</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="fehler">Fehler melden</option>
+                    <option value="sonstiges">Sonstiges</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nachricht">Nachricht: *</label>
+                <textarea id="nachricht" name="nachricht" rows="5" 
+                          placeholder="Deine Nachricht..." required></textarea>
+            </div>
+            <button type="submit">📨 Absenden</button>
+        </form>
+        
+        <div id="form-ausgabe"></div>
+    </section>
+
+</main>
+
+<!-- === Fußbereich === -->
+<footer class="site-footer">
+    <p>&copy; 2026 – Dein Name | Erstellt im Informatik-Unterricht</p>
+    <p><a href="#home" style="color: #aaa;">↑ Nach oben</a></p>
+</footer>

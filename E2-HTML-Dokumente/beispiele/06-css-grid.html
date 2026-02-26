@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout – Beispiel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* === Beispiel 1: Einfaches Grid === */
+        .grid-einfach {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .grid-einfach > div {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* === Beispiel 2: Unterschiedliche Spaltenbreiten === */
+        .grid-verschieden {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .grid-verschieden > div {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* === Beispiel 3: Grid Areas (Seitenlayout) === */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 60px 1fr 50px;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            gap: 10px;
+            margin: 15px 0;
+            min-height: 400px;
+        }
+
+        .grid-layout .g-header  { 
+            grid-area: header;
+            background: #2c3e50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .grid-layout .g-sidebar { 
+            grid-area: sidebar;
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .grid-layout .g-main    { 
+            grid-area: main;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .grid-layout .g-footer  { 
+            grid-area: footer;
+            background: #34495e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        /* === Beispiel 4: Karten-Grid (responsive) === */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 4px solid #9b59b6;
+        }
+
+        .card h3 {
+            color: #9b59b6;
+            margin: 0 0 10px 0;
+        }
+
+        /* === Beispiel 5: Galerie-Grid === */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 150px;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .gallery-grid > div {
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .gallery-grid .span-2-cols { grid-column: span 2; }
+        .gallery-grid .span-2-rows { grid-row: span 2; }
+
+        .g1 { background: #e74c3c; }
+        .g2 { background: #3498db; }
+        .g3 { background: #2ecc71; }
+        .g4 { background: #f39c12; }
+        .g5 { background: #9b59b6; }
+
+        /* Code-Box */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Grid Layout – Beispiele</h1>
+
+        <!-- Beispiel 1 -->
+        <h2>1. Einfaches 3-Spalten-Grid</h2>
+        <pre>grid-template-columns: 1fr 1fr 1fr;</pre>
+        <div class="grid-einfach">
+            <div>Spalte 1</div>
+            <div>Spalte 2</div>
+            <div>Spalte 3</div>
+            <div>Spalte 4</div>
+            <div>Spalte 5</div>
+            <div>Spalte 6</div>
+        </div>
+
+        <!-- Beispiel 2 -->
+        <h2>2. Unterschiedliche Spaltenbreiten</h2>
+        <pre>grid-template-columns: 1fr 2fr 1fr;</pre>
+        <div class="grid-verschieden">
+            <div>1fr</div>
+            <div>2fr (doppelt so breit)</div>
+            <div>1fr</div>
+        </div>
+
+        <!-- Beispiel 3 -->
+        <h2>3. Seitenlayout mit Grid Areas</h2>
+        <pre>grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";</pre>
+        <div class="grid-layout">
+            <div class="g-header"><strong>Header</strong></div>
+            <div class="g-sidebar">
+                <strong>Sidebar</strong>
+                <ul>
+                    <li>Link 1</li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
+                </ul>
+            </div>
+            <div class="g-main">
+                <strong>Hauptinhalt</strong>
+                <p>Hier steht der eigentliche Inhalt der Seite.</p>
+            </div>
+            <div class="g-footer"><strong>Footer</strong></div>
+        </div>
+
+        <!-- Beispiel 4 -->
+        <h2>4. Responsives Karten-Grid</h2>
+        <pre>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</pre>
+        <p><em>→ Verkleinere das Browserfenster, um den Effekt zu sehen!</em></p>
+        <div class="card-grid">
+            <div class="card">
+                <h3>HTML</h3>
+                <p>Struktur und Inhalt einer Webseite</p>
+            </div>
+            <div class="card">
+                <h3>CSS</h3>
+                <p>Gestaltung und Layout</p>
+            </div>
+            <div class="card">
+                <h3>JavaScript</h3>
+                <p>Interaktivität und Dynamik</p>
+            </div>
+            <div class="card">
+                <h3>Python</h3>
+                <p>Serverseitige Programmierung</p>
+            </div>
+        </div>
+
+        <!-- Beispiel 5 -->
+        <h2>5. Galerie mit span</h2>
+        <pre>grid-column: span 2;  /* Element über 2 Spalten */
+grid-row: span 2;     /* Element über 2 Zeilen */</pre>
+        <div class="gallery-grid">
+            <div class="g1 span-2-cols">Bild 1 (2 Spalten)</div>
+            <div class="g2 span-2-rows">Bild 2<br>(2 Zeilen)</div>
+            <div class="g3">Bild 3</div>
+            <div class="g4">Bild 4</div>
+            <div class="g5 span-2-cols">Bild 5 (2 Spalten)</div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperlinks – Beispiel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .back-to-top {
+            text-align: right;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="top">Hyperlinks in HTML</h1>
+    
+    <!-- === Navigation mit Ankerlinks === -->
+    <nav>
+        <a href="#extern">Externe Links</a>
+        <a href="#intern">Interne Links</a>
+        <a href="#anker">Ankerlinks</a>
+        <a href="#email">E-Mail-Links</a>
+    </nav>
+
+    <!-- === Externe Links === -->
+    <section id="extern">
+        <h2>Externe Links</h2>
+        <p>Externe Links verweisen auf andere Websites:</p>
+        <ul>
+            <li><a href="https://www.google.de" target="_blank">Google</a> 
+                (öffnet in neuem Tab)</li>
+            <li><a href="https://developer.mozilla.org/de/" target="_blank">
+                MDN Web Docs</a> (HTML/CSS-Referenz)</li>
+            <li><a href="https://codepen.io/" target="_blank">CodePen</a> 
+                (Online-Editor)</li>
+        </ul>
+        <p class="back-to-top"><a href="#top">↑ Nach oben</a></p>
+    </section>
+
+    <!-- === Interne Links (relativ) === -->
+    <section id="intern">
+        <h2>Interne Links (Relative Pfade)</h2>
+        <p>Links zu Dateien im gleichen Projekt:</p>
+        <ul>
+            <li><a href="01-grundgeruest.html">Zur Grundgerüst-Seite</a> 
+                (gleicher Ordner)</li>
+            <li><a href="02-elemente.html">Zur Elemente-Seite</a> 
+                (gleicher Ordner)</li>
+            <li><a href="../README.md">Zum Überblick</a> 
+                (ein Ordner höher)</li>
+        </ul>
+        <p class="back-to-top"><a href="#top">↑ Nach oben</a></p>
+    </section>
+
+    <!-- === Ankerlinks === -->
+    <section id="anker">
+        <h2>Ankerlinks (Sprungmarken)</h2>
+        <p>Mit <code>id</code>-Attributen kann man innerhalb einer Seite springen:</p>
+        <ul>
+            <li><a href="#extern">↑ Springe zu "Externe Links"</a></li>
+            <li><a href="#email">↓ Springe zu "E-Mail-Links"</a></li>
+            <li><a href="#top">↑ Springe ganz nach oben</a></li>
+        </ul>
+        <p><strong>So funktioniert es:</strong></p>
+        <pre><code>&lt;h2 id="mein-abschnitt"&gt;Abschnitt&lt;/h2&gt;
+&lt;a href="#mein-abschnitt"&gt;Zum Abschnitt&lt;/a&gt;</code></pre>
+        <p class="back-to-top"><a href="#top">↑ Nach oben</a></p>
+    </section>
+
+    <!-- === E-Mail- und Telefon-Links === -->
+    <section id="email">
+        <h2>E-Mail- und Telefon-Links</h2>
+        <p>Spezielle Link-Typen:</p>
+        <ul>
+            <li><a href="mailto:info@example.com">E-Mail senden</a> 
+                – öffnet das E-Mail-Programm</li>
+            <li><a href="mailto:info@example.com?subject=Frage&body=Hallo">
+                E-Mail mit Betreff und Text</a></li>
+            <li><a href="tel:+4912345678">Anrufen</a> 
+                – öffnet die Telefon-App (auf Mobilgeräten)</li>
+        </ul>
+        <p class="back-to-top"><a href="#top">↑ Nach oben</a></p>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulare und JavaScript – Beispiel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+
+        /* === Formular-Styling === */
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="password"],
+        input[type="url"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Validierung mit CSS */
+        input:valid {
+            border-color: #27ae60;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #e74c3c;
+        }
+
+        button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #3498db;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+        }
+
+        /* Ausgabe-Bereich */
+        #ausgabe {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .range-value {
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulare in HTML</h1>
+        
+        <form id="anmeldeformular">
+            <h2>Anmeldeformular</h2>
+            
+            <!-- Textfeld -->
+            <div class="form-group">
+                <label for="vorname">Vorname: *</label>
+                <input type="text" id="vorname" name="vorname" 
+                       placeholder="Dein Vorname" required minlength="2">
+            </div>
+
+            <div class="form-group">
+                <label for="nachname">Nachname: *</label>
+                <input type="text" id="nachname" name="nachname" 
+                       placeholder="Dein Nachname" required>
+            </div>
+
+            <!-- E-Mail -->
+            <div class="form-group">
+                <label for="email">E-Mail: *</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="name@example.com" required>
+            </div>
+
+            <!-- Datum -->
+            <div class="form-group">
+                <label for="geburtsdatum">Geburtsdatum:</label>
+                <input type="date" id="geburtsdatum" name="geburtsdatum">
+            </div>
+
+            <!-- Zahleneingabe -->
+            <div class="form-group">
+                <label for="alter">Alter:</label>
+                <input type="number" id="alter" name="alter" 
+                       min="10" max="99" placeholder="z.B. 16">
+            </div>
+
+            <!-- Dropdown/Select -->
+            <div class="form-group">
+                <label for="kurs">Kurs wählen:</label>
+                <select id="kurs" name="kurs">
+                    <option value="">-- Bitte wählen --</option>
+                    <option value="informatik">Informatik</option>
+                    <option value="mathe">Mathematik</option>
+                    <option value="physik">Physik</option>
+                    <option value="deutsch">Deutsch</option>
+                </select>
+            </div>
+
+            <!-- Radio-Buttons -->
+            <div class="form-group">
+                <label>Erfahrung mit HTML:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="erfahrung" value="keine"> Keine
+                    </label>
+                    <label>
+                        <input type="radio" name="erfahrung" value="wenig"> Wenig
+                    </label>
+                    <label>
+                        <input type="radio" name="erfahrung" value="mittel" checked> Mittel
+                    </label>
+                    <label>
+                        <input type="radio" name="erfahrung" value="viel"> Viel
+                    </label>
+                </div>
+            </div>
+
+            <!-- Checkboxen -->
+            <div class="form-group">
+                <label>Interessen:</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="interesse" value="webdev"> Webentwicklung
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interesse" value="netzwerk"> Netzwerke
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interesse" value="ki"> KI
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interesse" value="games"> Spieleentwicklung
+                    </label>
+                </div>
+            </div>
+
+            <!-- Range/Slider -->
+            <div class="form-group">
+                <label for="motivation">Motivation (1-10):</label>
+                <input type="range" id="motivation" name="motivation" 
+                       min="1" max="10" value="5">
+                <span class="range-value" id="motivation-wert">5</span>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label for="kommentar">Kommentar:</label>
+                <textarea id="kommentar" name="kommentar" rows="4" 
+                          placeholder="Schreibe hier einen Kommentar..."></textarea>
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit">Anmelden</button>
+            <button type="reset" style="background: #95a5a6;">Zurücksetzen</button>
+        </form>
+
+        <!-- Ausgabebereich -->
+        <div id="ausgabe">
+            <h3>Anmeldedaten:</h3>
+            <div id="ausgabe-inhalt"></div>
+        </div>
+    </div>
+
+    <script>
+        // === Range-Slider: Wert anzeigen ===
+        const slider = document.getElementById("motivation");
+        const sliderWert = document.getElementById("motivation-wert");
+        slider.addEventListener("input", function() {
+            sliderWert.textContent = slider.value;
+        });
+
+        // === Formular absenden (mit JavaScript abfangen) ===
+        document.getElementById("anmeldeformular").addEventListener("submit", function(event) {
+            // Standardverhalten (Seitenneuladen) verhindern
+            event.preventDefault();
+
+            // Werte auslesen
+            let vorname = document.getElementById("vorname").value;
+            let nachname = document.getElementById("nachname").value;
+            let email = document.getElementById("email").value;
+            let geburtsdatum = document.getElementById("geburtsdatum").value;
+            let alter = document.getElementById("alter").value;
+            let kurs = document.getElementById("kurs").value;
+            let motivation = document.getElementById("motivation").value;
+            let kommentar = document.getElementById("kommentar").value;
+
+            // Radio-Button auslesen
+            let erfahrung = "nicht angegeben";
+            let radioButtons = document.getElementsByName("erfahrung");
+            for (let radio of radioButtons) {
+                if (radio.checked) {
+                    erfahrung = radio.value;
+                    break;
+                }
+            }
+
+            // Checkboxen auslesen
+            let interessen = [];
+            let checkboxen = document.getElementsByName("interesse");
+            for (let cb of checkboxen) {
+                if (cb.checked) {
+                    interessen.push(cb.value);
+                }
+            }
+
+            // Ausgabe erstellen
+            let html = "<table>";
+            html += "<tr><td><strong>Name:</strong></td><td>" + vorname + " " + nachname + "</td></tr>";
+            html += "<tr><td><strong>E-Mail:</strong></td><td>" + email + "</td></tr>";
+            html += "<tr><td><strong>Geburtsdatum:</strong></td><td>" + (geburtsdatum || "–") + "</td></tr>";
+            html += "<tr><td><strong>Alter:</strong></td><td>" + (alter || "–") + "</td></tr>";
+            html += "<tr><td><strong>Kurs:</strong></td><td>" + (kurs || "–") + "</td></tr>";
+            html += "<tr><td><strong>Erfahrung:</strong></td><td>" + erfahrung + "</td></tr>";
+            html += "<tr><td><strong>Interessen:</strong></td><td>" + (interessen.join(", ") || "–") + "</td></tr>";
+            html += "<tr><td><strong>Motivation:</strong></td><td>" + motivation + "/10</td></tr>";
+            html += "<tr><td><strong>Kommentar:</strong></td><td>" + (kommentar || "–") + "</td></tr>";
+            html += "</table>";
+
+            // Ausgabe anzeigen
+            let ausgabe = document.getElementById("ausgabe");
+            ausgabe.style.display = "block";
+            document.getElementById("ausgabe-inhalt").innerHTML = html;
+            
+            // Zum Ausgabebereich scrollen
+            ausgabe.scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>
