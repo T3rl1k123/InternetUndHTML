@@ -44,12 +44,12 @@ Ein **Rechnernetz** (engl. *computer network*) ist ein Zusammenschluss von zwei 
 
 ### Netzwerkgeräte
 
-| Gerät | Funktion | Arbeitet auf Schicht |
-|-------|----------|---------------------|
-| **Netzwerkkabel** | Physische Verbindung zwischen Geräten | Physisch |
-| **Switch** | Verbindet mehrere Geräte in einem lokalen Netzwerk (LAN). Leitet Daten gezielt an das richtige Gerät weiter. | Schicht 2 (Sicherung) |
-| **Router** | Verbindet verschiedene Netzwerke miteinander. Leitet Datenpakete zwischen Netzen weiter (Routing). | Schicht 3 (Vermittlung) |
-| **Access Point** | Ermöglicht WLAN-Zugang zu einem kabelgebundenen Netzwerk | Schicht 2 |
+| Gerät | Funktion |
+|-------|----------|
+| **Netzwerkkabel** | Physische Verbindung zwischen Geräten |
+| **Switch** | Verbindet mehrere Geräte in einem lokalen Netzwerk (LAN). Leitet Daten gezielt an das richtige Gerät weiter. |
+| **Router** | Verbindet verschiedene Netzwerke miteinander. Leitet Datenpakete zwischen Netzen weiter (Routing). |
+| **Access Point** | Ermöglicht WLAN-Zugang zu einem kabelgebundenen Netzwerk |
 
 ### Merke: Switch vs. Router
 
@@ -143,9 +143,11 @@ Im **Entwurfsmodus** findest du links die Werkzeugleiste mit:
    - Wiederhole für PC2 und PC3
 
 5. **Konfiguriere die IP-Adressen** (Doppelklick auf jeden PC):
-   - PC1: IP-Adresse `192.168.1.1`, Subnetzmaske `255.255.255.0`
-   - PC2: IP-Adresse `192.168.1.2`, Subnetzmaske `255.255.255.0`
-   - PC3: IP-Adresse `192.168.1.3`, Subnetzmaske `255.255.255.0`
+   - PC1: IP-Adresse `192.168.1.1`
+   - PC2: IP-Adresse `192.168.1.2`
+   - PC3: IP-Adresse `192.168.1.3`
+
+   > **Hinweis:** Filius fragt auch nach einer „Subnetzmaske". Trage dort überall `255.255.255.0` ein. Was die Subnetzmaske genau bedeutet, lernst du in [DS 02](02-IP-Adressen-und-Routing.md).
 
 6. **Wechsle in den Aktionsmodus** (grüner Pfeil)
 
@@ -157,8 +159,6 @@ Im **Entwurfsmodus** findest du links die Werkzeugleiste mit:
 
 ### Ergebnis
 ```
-Netzwerk: 192.168.1.0/24
-
        PC1 (192.168.1.1)
            |
 PC3 -- Switch -- PC2 (192.168.1.2)
@@ -197,14 +197,14 @@ Erweitere dein Filius-Netzwerk:
 ### Aufgabe 3: Nachdenken
 1. Was passiert, wenn du einem PC die IP-Adresse `192.168.2.1` gibst (statt `192.168.1.x`)?  
    Probiere es in Filius aus und erkläre das Ergebnis.
-2. Warum brauchen alle PCs im selben Netzwerk die gleiche Subnetzmaske?
+2. Was passiert, wenn du zwei PCs die gleiche IP-Adresse gibst? Probiere es aus.
 
 <details>
 <summary>Lösung anzeigen</summary>
 
-1. Der PC mit `192.168.2.1` kann die anderen PCs NICHT erreichen, weil er sich in einem anderen Netzwerk befindet (`192.168.2.0/24` statt `192.168.1.0/24`). Innerhalb eines LANs (über einen Switch) müssen alle Geräte im selben Netzwerk sein.
+1. Der PC mit `192.168.2.1` kann die anderen PCs NICHT erreichen, weil er sich in einem anderen Netzwerk befindet. Die ersten drei Zahlen der IP-Adresse müssen übereinstimmen, damit die PCs sich im selben Netzwerk befinden. Warum genau das so ist, lernst du in DS 02 (Subnetzmaske).
 
-2. Die Subnetzmaske bestimmt, welcher Teil der IP-Adresse das Netzwerk identifiziert und welcher Teil den einzelnen Rechner. Nur wenn die Subnetzmaske übereinstimmt, „wissen" die PCs, wer im selben Netz ist.
+2. Bei doppelten IP-Adressen kommt es zu Konflikten – die Kommunikation funktioniert nicht zuverlässig, weil das Netzwerk nicht weiß, welcher PC gemeint ist. IP-Adressen müssen innerhalb eines Netzwerks eindeutig sein.
 </details>
 
 ### Aufgabe 4: Topologien zeichnen

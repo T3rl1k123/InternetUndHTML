@@ -225,7 +225,7 @@ Du kannst ein Item über **mehrere Zellen** strecken:
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;    /* Padding und Border werden in die Breite eingerechnet */
 }
 
 body {
@@ -236,7 +236,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 250px;
     grid-template-rows: auto auto 1fr auto;
-    min-height: 100vh;
+    min-height: 100vh;         /* 100vh = 100% der Fensterhöhe */
     gap: 0;
 }
 
@@ -252,8 +252,10 @@ body {
     grid-column: 1 / -1;          /* Ganze Breite */
     background: #34495e;
     padding: 10px 20px;
-    display: flex;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    text-align: center;
 }
 
 .nav a {
@@ -350,8 +352,7 @@ Ein häufiges Muster – z. B. für Portfolios, Produktlisten, Bildergalerien:
 
 .card:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
+    background: #f0f0f0;
 }
 ```
 

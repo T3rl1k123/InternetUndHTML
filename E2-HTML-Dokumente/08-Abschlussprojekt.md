@@ -239,12 +239,10 @@ body {
 .main-nav {
     background: #34495e;
     padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    text-align: center;
 }
 
 .main-nav a {
@@ -252,7 +250,6 @@ body {
     text-decoration: none;
     padding: 5px 15px;
     border-radius: 4px;
-    transition: background 0.3s;
 }
 
 .main-nav a:hover {

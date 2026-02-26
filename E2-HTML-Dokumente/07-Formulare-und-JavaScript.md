@@ -178,6 +178,11 @@ Formulare ermöglichen es Benutzern, **Daten einzugeben und an einen Server zu s
 
 ### CSS für das Formular
 
+> **Neue CSS-Selektoren:** Für Formulare brauchen wir zwei Selektortypen, die wir bisher nicht kennengelernt haben:
+> - **Attributselektor** `input[type="text"]` – wählt nur `<input>`-Elemente, deren `type`-Attribut den Wert `"text"` hat
+> - **Pseudo-Klasse** `:focus` – wählt ein Element, das gerade angeklickt/ausgewählt ist (der Cursor steht darin)
+> - **Pseudo-Klasse** `:hover` – wählt ein Element, über dem die Maus schwebt (kennst du vielleicht schon aus DS 10)
+
 ```css
 form {
     max-width: 500px;
@@ -195,6 +200,7 @@ label {
     font-weight: bold;
 }
 
+/* Attributselektoren: nur bestimmte Input-Typen ansprechen */
 input[type="text"],
 input[type="email"],
 select,
@@ -207,12 +213,12 @@ textarea {
     box-sizing: border-box;
 }
 
+/* Pseudo-Klasse :focus – wenn das Feld angeklickt/aktiv ist */
 input:focus,
 textarea:focus,
 select:focus {
     border-color: #2c3e50;
-    outline: none;
-    box-shadow: 0 0 3px rgba(44, 62, 80, 0.3);
+    outline: none;              /* Standard-Rahmen des Browsers entfernen */
 }
 
 button {
@@ -220,10 +226,11 @@ button {
     font-size: 14px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer;            /* Zeigt eine Hand beim Überfahren */
     margin-right: 10px;
 }
 
+/* Attributselektor: nur den Absende-Button ansprechen */
 button[type="submit"] {
     background: #2c3e50;
     color: white;

@@ -71,13 +71,10 @@ a:hover {
 .main-nav {
     background: #34495e;
     padding: 15px 20px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    text-align: center;
 }
 
 .main-nav a {
@@ -85,12 +82,12 @@ a:hover {
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 4px;
-    transition: background 0.3s;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
     background: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
 }
 
 
@@ -135,11 +132,10 @@ a:hover {
     padding: 20px;
     border-radius: 8px;
     border-left: 4px solid #3498db;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-3px);
+    background: #dfe6e9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -221,11 +217,10 @@ li {
 .gallery-grid img {
     width: 100%;
     border-radius: 8px;
-    transition: transform 0.3s;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.03);
+    opacity: 0.85;
 }
 
 .gallery-grid figcaption {
@@ -257,7 +252,6 @@ li {
     border-radius: 4px;
     font-size: 14px;
     font-family: inherit;
-    transition: border-color 0.3s;
 }
 
 .form-group input:focus,
@@ -275,7 +269,6 @@ button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.3s;
 }
 
 button[type="submit"]:hover {

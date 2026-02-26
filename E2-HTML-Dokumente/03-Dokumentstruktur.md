@@ -165,11 +165,11 @@ HTML5 bietet spezielle Elemente, um die **Bedeutung** (Semantik) der Seitenstruk
 
 ```html
 <!-- ❌ Ohne Semantik – unklar, was was ist -->
-<div class="oben">
-    <div class="links">Navigation</div>
+<div>
+    <div>Navigation</div>
 </div>
-<div class="mitte">Inhalt</div>
-<div class="unten">Copyright</div>
+<div>Inhalt</div>
+<div>Copyright</div>
 
 <!-- ✅ Mit Semantik – sofort verständlich -->
 <header>
@@ -200,14 +200,14 @@ HTML5 bietet spezielle Elemente, um die **Bedeutung** (Semantik) der Seitenstruk
     <header>
         <h1>Informatik-Blog</h1>
         <nav>
-            <a href="#netzwerke">Netzwerke</a> |
-            <a href="#html">HTML</a> |
-            <a href="#python">Python</a>
+            <!-- Links werden in DS 09 behandelt – 
+                 hier zeigen wir nur die Struktur -->
+            <p>Netzwerke | HTML | Python</p>
         </nav>
     </header>
 
     <main>
-        <article id="netzwerke">
+        <article>
             <h2>Rechnernetze</h2>
             <section>
                 <h3>Was ist ein Netzwerk?</h3>
@@ -219,7 +219,7 @@ HTML5 bietet spezielle Elemente, um die **Bedeutung** (Semantik) der Seitenstruk
             </section>
         </article>
 
-        <article id="html">
+        <article>
             <h2>HTML-Grundlagen</h2>
             <p>HTML steht für Hypertext Markup Language...</p>
         </article>
@@ -227,8 +227,8 @@ HTML5 bietet spezielle Elemente, um die **Bedeutung** (Semantik) der Seitenstruk
         <aside>
             <h3>Nützliche Links</h3>
             <ul>
-                <li><a href="https://developer.mozilla.org/de/">MDN Web Docs</a></li>
-                <li><a href="https://www.inf-schule.de/">inf-schule.de</a></li>
+                <li>MDN Web Docs</li>
+                <li>inf-schule.de</li>
             </ul>
         </aside>
     </main>
@@ -252,11 +252,9 @@ html
     ├── header
     │   ├── h1
     │   └── nav
-    │       ├── a
-    │       ├── a
-    │       └── a
+    │       └── p
     ├── main
-    │   ├── article#netzwerke
+    │   ├── article
     │   │   ├── h2
     │   │   ├── section
     │   │   │   ├── h3
@@ -264,7 +262,7 @@ html
     │   │   └── section
     │   │       ├── h3
     │   │       └── p
-    │   ├── article#html
+    │   ├── article
     │   │   ├── h2
     │   │   └── p
     │   └── aside
@@ -355,9 +353,9 @@ Beantworte für das Komplett-Beispiel (Informatik-Blog):
 <details>
 <summary>Lösung anzeigen</summary>
 
-1. `<article id="netzwerke">`
-2. `<article id="netzwerke">` und `<article id="html">`
-3. Drei: `article#netzwerke`, `article#html`, `aside`
+1. `<article>` (der erste Artikel)
+2. Die beiden `<article>`-Elemente
+3. Drei: zwei `<article>` und ein `<aside>`
 4. Ja! `<h3>` → `<section>` → `<article>` → `<main>` (indirektes Kind / Nachfahre)
 </details>
 

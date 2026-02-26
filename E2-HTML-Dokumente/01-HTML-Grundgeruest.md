@@ -78,13 +78,13 @@ Tags können **Attribute** haben, die zusätzliche Informationen enthalten:
 ### Beispiele
 
 ```html
-<a href="https://www.google.de">Link zu Google</a>
-   ↑      ↑
-   Attribut  Attributwert
-
 <img src="foto.jpg" alt="Ein Foto" width="300">
      ↑               ↑              ↑
      Quelle           Alternativtext  Breite
+
+<p lang="de" id="einleitung">Text auf Deutsch</p>
+   ↑          ↑
+   Sprache     Eindeutige Kennung
 ```
 
 ### Regeln für Attribute
