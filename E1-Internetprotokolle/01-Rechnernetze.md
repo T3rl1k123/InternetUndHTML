@@ -48,17 +48,17 @@ Ein **Rechnernetz** (engl. *computer network*) ist ein Zusammenschluss von zwei 
 |-------|----------|
 | **Netzwerkkabel** | Physische Verbindung zwischen Geräten |
 | **Switch** | Verbindet mehrere Geräte in einem lokalen Netzwerk (LAN). Leitet Daten gezielt an das richtige Gerät weiter. |
-| **Router** | Verbindet verschiedene Netzwerke miteinander. Leitet Datenpakete zwischen Netzen weiter (Routing). |
+| **Router / Vermittlungsrechner** | Verbindet verschiedene Netzwerke miteinander. Leitet Datenpakete zwischen Netzen weiter (Routing). In der Simulationssoftware Filius heißt dieses Bauteil **Vermittlungsrechner**. |
 | **Access Point** | Ermöglicht WLAN-Zugang zu einem kabelgebundenen Netzwerk |
 
-### Merke: Switch vs. Router
+### Merke: Switch vs. Vermittlungsrechner
 
 ```
-Switch  → verbindet Geräte INNERHALB eines Netzwerks
-Router  → verbindet verschiedene NETZWERKE miteinander
+Switch               → verbindet Geräte INNERHALB eines Netzwerks
+Vermittlungsrechner  → verbindet verschiedene NETZWERKE miteinander
 ```
 
-**Analogie:** Ein Switch ist wie ein Briefverteiler innerhalb eines Bürogebäudes. Ein Router ist wie die Post, die Briefe zwischen verschiedenen Städten transportiert.
+**Analogie:** Ein Switch ist wie ein Briefverteiler innerhalb eines Bürogebäudes. Ein Vermittlungsrechner (Router) ist wie die Post, die Briefe zwischen verschiedenen Städten transportiert.
 
 ---
 
@@ -116,7 +116,7 @@ PC4 --- PC3
 Im **Entwurfsmodus** findest du links die Werkzeugleiste mit:
 - **Rechner** (PC/Laptop)
 - **Switch** (Verteiler)
-- **Router** (Netzwerkverbinder)
+- **Vermittlungsrechner** (verbindet Netzwerke; im Internet auch als „Router" bekannt)
 - **Kabel** (Verbindung)
 
 ---
@@ -175,7 +175,7 @@ Ordne die Begriffe der richtigen Beschreibung zu:
 | Begriff | Beschreibung |
 |---------|-------------|
 | LAN | a) Verbindet verschiedene Netzwerke |
-| Router | b) Lokales Netzwerk in einem Gebäude |
+| Vermittlungsrechner | b) Lokales Netzwerk in einem Gebäude |
 | Switch | c) Verbindet Geräte innerhalb eines Netzwerks |
 | WAN | d) Netzwerk über große Entfernungen |
 
@@ -183,7 +183,7 @@ Ordne die Begriffe der richtigen Beschreibung zu:
 <summary>Lösung anzeigen</summary>
 
 - LAN → b) Lokales Netzwerk in einem Gebäude
-- Router → a) Verbindet verschiedene Netzwerke
+- Vermittlungsrechner → a) Verbindet verschiedene Netzwerke
 - Switch → c) Verbindet Geräte innerhalb eines Netzwerks
 - WAN → d) Netzwerk über große Entfernungen
 </details>

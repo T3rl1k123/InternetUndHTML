@@ -60,6 +60,44 @@ Für jeden PC:
    ```
 7. Teste auch: `ping 192.168.1.3`
 
+## Schritt 7: ARP-Datenverkehr analysieren
+
+> **Was ist ARP?**  
+> Das *Address Resolution Protocol* (ARP) übersetzt IP-Adressen in MAC-Adressen. Bevor PC1 ein Paket an PC2 schicken kann, muss er wissen, welche **MAC-Adresse** hinter der IP-Adresse `192.168.1.2` steckt. IP- und MAC-Adresse unterscheiden sich in Funktion und Gültigkeitsbereich – mehr dazu in [DS 02, Abschnitt 2](../02-IP-Adressen-und-Routing.md).
+
+### Vorbereitung
+
+1. Bleibe im **Aktionsmodus** (▶️)
+2. **Rechtsklicke** auf PC1 und wähle **„Datenaustausch anzeigen"**
+3. Das Datenaustausch-Fenster öffnet sich – es protokolliert alle gesendeten und empfangenen Pakete
+
+### Auftrag: Ping beobachten
+
+4. Öffne erneut die **Befehlszeile** auf PC1 (oder wechsle in das bereits offene Fenster)
+5. Sende einen **neuen Ping** (damit ARP sichtbar wird – falls noch kein Paket gelaufen ist):
+   ```
+   ping 192.168.1.2
+   ```
+6. Beobachte das Datenaustausch-Fenster: Vor dem ersten ICMP-Ping-Paket erscheint eine **ARP-Anfrage**
+
+### Analyse-Aufgaben (schriftlich beantworten)
+
+1. **Welche Adressen** stehen in der ARP-Anfrage?  
+   *(Hinweis: Die Ziel-IP ist eine Broadcast-Adresse – welche könnte das sein?)*
+
+2. **Welche MAC-Adresse** zeigt PC1 als Absenderadresse?  
+   Vergleiche sie mit der Konfigurationsanzeige von PC1 (Doppelklick im Entwurfsmodus).
+
+3. **MAC vs. IP – worin besteht der Unterschied?**  
+   Erkläre in eigenen Worten, was der Unterschied zwischen einer MAC-Adresse und einer IP-Adresse ist.  
+   *(Tipp: Schaue in [DS 02 – Abschnitt 2](../02-IP-Adressen-und-Routing.md) nach.)*
+
+4. **Warum ARP zuerst?**  
+   Warum schickt PC1 zunächst eine ARP-Anfrage, bevor es den eigentlichen Ping sendet?
+
+5. **Bonus:** Führe den Ping **ein zweites Mal** aus. Erscheint dabei erneut eine ARP-Anfrage?  
+   Erkläre, warum (nicht). *(Stichwort: ARP-Cache)*
+
 ## Fertig! ✅
 
 Dein erstes Netzwerk funktioniert. Alle drei PCs können miteinander kommunizieren.

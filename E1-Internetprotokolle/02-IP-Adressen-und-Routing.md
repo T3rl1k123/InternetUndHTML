@@ -7,10 +7,12 @@
 ## Lernziele dieser Stunde
 
 - Du kannst den Aufbau einer IPv4-Adresse erklären.
+- Du kannst den Unterschied zwischen MAC-Adresse und IP-Adresse erklären.
+- Du verstehst, wie ARP IP-Adressen in MAC-Adressen auflöst.
 - Du verstehst die Bedeutung der Subnetzmaske.
 - Du kannst den Netzwerk- und Hostanteil einer IP-Adresse bestimmen.
-- Du verstehst, wie ein Router verschiedene Netzwerke verbindet.
-- Du kannst in Filius ein Netzwerk mit Router aufbauen.
+- Du verstehst, wie ein Vermittlungsrechner (Router) verschiedene Netzwerke verbindet.
+- Du kannst in Filius ein Netzwerk mit Vermittlungsrechner aufbauen.
 
 ---
 
@@ -47,7 +49,44 @@ Computer arbeiten intern mit Binärzahlen. Die IP-Adresse `192.168.1.10` sieht b
 
 ---
 
-## 2. Subnetzmaske
+## 2. MAC-Adresse vs. IP-Adresse
+
+Jedes Netzwerkgerät besitzt **zwei verschiedene Adressen**, die unterschiedliche Zwecke erfüllen:
+
+| | MAC-Adresse | IP-Adresse |
+|-|------------|-----------|
+| **Vollname** | Media Access Control Address | Internet Protocol Address |
+| **Vergabe** | Fest eingebaut (durch den Hersteller) | Einstellbar (durch Admin oder DHCP) |
+| **Format** | 6 Bytes, hexadezimal, z. B. `A4:C3:F0:12:34:56` | 4 Bytes, dezimal, z. B. `192.168.1.10` |
+| **Eindeutigkeit** | Weltweit eindeutig | Nur innerhalb eines Netzwerks eindeutig |
+| **Gültigkeitsbereich** | Nur im lokalen Netzwerk (LAN) | Über Netzwerkgrenzen hinweg (Internet) |
+| **TCP/IP-Schicht** | Netzzugangsschicht (Schicht 1) | Internetschicht (Schicht 2) |
+
+### Analogie
+
+Stell dir eine Postlieferung vor:
+- Die **IP-Adresse** ist wie die **Postanschrift** – sie beschreibt, wohin das Paket weltweit geliefert werden soll.
+- Die **MAC-Adresse** ist wie ein **Namensschild an der Haustür** – sie identifiziert das Gerät im lokalen Netzwerk, sobald das Paket angekommen ist.
+
+> **Merke:** IP-Adressen finden den Weg quer durch das Internet. MAC-Adressen sorgen dafür, dass das Paket im letzten Schritt das richtige Gerät im LAN erreicht.
+
+### Das ARP-Protokoll
+
+Damit ein Gerät ein Paket an eine IP-Adresse im selben Netzwerk senden kann, muss es zuerst die zugehörige **MAC-Adresse** herausfinden. Das übernimmt das **ARP-Protokoll** (Address Resolution Protocol):
+
+```
+Gerät sendet Paket an 192.168.1.2 – Ablauf:
+
+  1. ARP-Anfrage (Broadcast an alle):  „Wer hat 192.168.1.2? Bitte antworte an 192.168.1.1!"
+  2. ARP-Antwort von PC2:              „Ich! Meine MAC-Adresse: A4:C3:F0:12:34:56"
+  3. PC1 sendet das Paket direkt an die MAC-Adresse A4:C3:F0:12:34:56
+```
+
+> **Hinweis:** ARP-Anfragen sind immer **Broadcasts** – sie gehen an alle Geräte im Netzwerk. Nur das Gerät mit der passenden IP antwortet. Die Antwort wird im **ARP-Cache** des Absenders gespeichert, damit nicht bei jedem Paket erneut gefragt werden muss.
+
+---
+
+## 3. Subnetzmaske
 
 Die **Subnetzmaske** bestimmt, welcher Teil der IP-Adresse das **Netzwerk** identifiziert und welcher Teil den **Host** (das einzelne Gerät).
 
@@ -94,7 +133,7 @@ Zwei Geräte sind im **selben Netzwerk**, wenn ihr **Netzwerkanteil** übereinst
 
 ---
 
-## 3. Routing – Netzwerke verbinden
+## 4. Routing – Netzwerke verbinden
 
 Wenn zwei Geräte in **verschiedenen** Netzwerken sind, brauchen sie einen **Router**, der die Datenpakete zwischen den Netzen weiterleitet.
 
@@ -136,7 +175,7 @@ Router:
 
 ---
 
-## 🔨 Erarbeitungsaufgabe: Zwei Netzwerke mit Router verbinden
+## 🔨 Erarbeitungsaufgabe: Zwei Netzwerke mit Vermittlungsrechner verbinden
 
 > Siehe auch: [Filius-Anleitung: Routing](filius-anleitungen/02-routing.md)
 
@@ -148,7 +187,7 @@ Erstelle in Filius folgendes Netzwerk:
 Netzwerk A: 192.168.1.0/24        Netzwerk B: 192.168.2.0/24
 
   PC-A1 (192.168.1.1) ───┐          ┌─── PC-B1 (192.168.2.1)
-                        Switch-A ── Router ── Switch-B
+                        Switch-A ── Vermittlungsrechner ── Switch-B
   PC-A2 (192.168.1.2) ───┘          └─── PC-B2 (192.168.2.2)
 ```
 
@@ -156,9 +195,9 @@ Netzwerk A: 192.168.1.0/24        Netzwerk B: 192.168.2.0/24
 
 1. **Platziere 2 Switches** und **4 PCs** (je 2 pro Switch)
 
-2. **Platziere einen Router** zwischen den Switches und verbinde ihn mit beiden Switches
+2. **Platziere einen Vermittlungsrechner** zwischen den Switches und verbinde ihn mit beiden Switches
 
-3. **Konfiguriere den Router** (Doppelklick):
+3. **Konfiguriere den Vermittlungsrechner** (Doppelklick):
    - Schnittstelle 1: IP `192.168.1.254`, Maske `255.255.255.0`
    - Schnittstelle 2: IP `192.168.2.254`, Maske `255.255.255.0`
 
@@ -173,7 +212,7 @@ Netzwerk A: 192.168.1.0/24        Netzwerk B: 192.168.2.0/24
 6. **Teste die Verbindung** im Aktionsmodus:
    - Öffne die Befehlszeile auf PC-A1
    - `ping 192.168.1.2` → Funktioniert (gleiches Netz)
-   - `ping 192.168.2.1` → Funktioniert (über Router)
+   - `ping 192.168.2.1` → Funktioniert (über Vermittlungsrechner)
 
 ---
 
@@ -221,7 +260,7 @@ Subnetzmaske ist überall `255.255.255.0`.
 ### Aufgabe 3: Drei Netzwerke (⭐ Herausforderung)
 Erweitere dein Filius-Netzwerk um ein **drittes Netzwerk C** (`192.168.3.0/24`):
 
-1. Füge einen zweiten Router oder eine dritte Schnittstelle am bestehenden Router hinzu
+1. Füge einen zweiten Vermittlungsrechner oder eine dritte Schnittstelle am bestehenden Vermittlungsrechner hinzu
 2. Erstelle 2 PCs im neuen Netzwerk
 3. Konfiguriere alles richtig (IP, Maske, Gateway)
 4. Teste: Kann PC-A1 einen PC in Netzwerk C erreichen?
